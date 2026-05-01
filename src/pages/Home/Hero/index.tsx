@@ -76,7 +76,7 @@ const Hero = () => {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative w-full h-[400px] md:h-[500px] lg:h-[650px] overflow-hidden bg-black"
+      className="relative w-full h-[400px] md:h-[500px] lg:h-[650px] overflow-hidden bg-black "
     >
       {/* Background image container */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
@@ -89,7 +89,7 @@ const Hero = () => {
             // top of the image stays at the top of the container
             objectPosition: "top center",
             animation: "kenBurnOut 6s ease-out forwards",
-            transformOrigin: "top center", // make zoom starts from the top
+            transformOrigin: "top center", // make zoom start from the top
           }}
         />
       </div>
@@ -149,7 +149,7 @@ const Hero = () => {
 
       {/* Text overlay */}
       <div
-        className="absolute inset-0 flex flex-col justify-center px-8 md:px-16"
+        className="absolute inset-0 flex flex-col justify-center items-center lg:items-start px-5 lg:px-16 text-center lg:text-left"
         style={{
           zIndex: 20,
           opacity: textVisible ? 1 : 0,
@@ -157,14 +157,16 @@ const Hero = () => {
           transition: "opacity 0.6s ease, transform 0.6s ease",
         }}
       >
-        <p className="text-white text-sm uppercase tracking-widest mb-2 opacity-80 font-semibold">
+        <p className="text-white sm:text-sm md:text-l text-xs  uppercase tracking-widest mb-2 opacity-80 font-semibold">
           Welcome to NannyBay
         </p>
-        <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight max-w-2xl">
+        <h1 className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-xs sm:max-w-lg md:max-w-2xl mx-auto md:mx-0">
           {slide.heading}
         </h1>
-        <p className="text-white/80 mt-4 text-lg max-w-md">{slide.sub}</p>
-        <div className="mt-8 flex gap-4">
+        <p className="text-white/80 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-sm md:max-w-md leading-relaxed mx-auto md:mx-0">
+          {slide.sub}
+        </p>
+        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center md:items-start">
           <button className="bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition-all active:scale-95">
             {slide.cta}
           </button>

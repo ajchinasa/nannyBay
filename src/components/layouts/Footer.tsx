@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
+
 import Logo from "../../assets/images/universal/footerLogo.png";
 import socialLinks from "../../data/footer/socialLinks";
 import { quickLinks } from "../../data/footer/quickLinks";
@@ -25,9 +26,18 @@ const Footer = () => {
     <footer style={{ backgroundColor: "#0f1c2e" }} className="text-white">
       {/* Main Footer */}
       <div className="px-6 md:px-16 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
-          {/* Column 1 - Brand */}
-          <div className="flex flex-col gap-5">
+        {/* 
+          Mobile:
+          Row 1 = Brand
+          Row 2 = Quick Links + Services side by side
+          Row 3 = Contact full width at bottom
+
+          Desktop:
+          4 columns
+        */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-5">
             <img
               src={Logo}
               alt="NannyBay"
@@ -35,7 +45,7 @@ const Footer = () => {
             />
 
             <p
-              className="text-sm leading-relaxed"
+              className="text-sm leading-relaxed max-w-xs"
               style={{ color: "rgba(255,255,255,0.6)" }}
             >
               Simplifying Life, One Home At A Time.
@@ -63,8 +73,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2 - Quick Links */}
-          <div className="flex flex-col gap-4">
+          {/* Quick Links */}
+          <div className="col-span-1 flex flex-col gap-4">
             <h4
               className="text-sm font-semibold uppercase tracking-widest"
               style={{ color: "#93C5FD" }}
@@ -98,8 +108,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3 - Services */}
-          <div className="flex flex-col gap-4">
+          {/* Services */}
+          <div className="col-span-1 flex flex-col gap-4">
             <h4
               className="text-sm font-semibold uppercase tracking-widest"
               style={{ color: "#93C5FD" }}
@@ -122,8 +132,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 4 - Contact */}
-          <div className="flex flex-col gap-4">
+          {/* Contact */}
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
             <h4
               className="text-sm font-semibold uppercase tracking-widest"
               style={{ color: "#93C5FD" }}

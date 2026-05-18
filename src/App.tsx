@@ -1,28 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layouts/Layout";
-import Loader from "./components/layouts/Loader";
-import { useState, useEffect } from "react";
+import ScrollToHashElement from "./components/scroll";
+
 import Home from "./pages/Home";
+import Services from "./pages/Services";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // 2 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) return <Loader />;
-
   return (
     <BrowserRouter>
+      <ScrollToHashElement />
+
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/services" element={<Services />} />
         </Routes>
       </Layout>
     </BrowserRouter>

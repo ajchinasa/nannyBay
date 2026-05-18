@@ -22,7 +22,7 @@ const values: Value[] = [
     iconColor: "#059669",
     bg: "#D1FAE5",
     title: "Compassion",
-    body: "We care about the people we serve — from the families we work with to the professionals we empower. Everything we do is driven by genuine care.",
+    body: "We care about the people we serve, from the families we work with to the professionals we empower. Everything we do is driven by genuine care.",
   },
   {
     icon: Star,
@@ -36,7 +36,7 @@ const values: Value[] = [
     iconColor: "#7C3AED",
     bg: "#EDE9FE",
     title: "Reliability",
-    body: "When you book with NannyBay, we show up — on time, every time. You can count on us.",
+    body: "When you book with NannyBay, we show up on time, every time. You can count on us.",
   },
   {
     icon: Lock,

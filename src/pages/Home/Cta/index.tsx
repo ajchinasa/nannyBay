@@ -1,13 +1,14 @@
 import ctaImg from "../../../assets/images/landingPage/heroSlideImageTwo.png";
+import { Link } from "react-router-dom";
 
 const CTA = () => {
   return (
     <section
-      className="relative px-5 md:px-16 py-14 md:py-20 overflow-hidden"
+      className="relative py-14 md:py-20 overflow-hidden"
       style={{ backgroundColor: "#1E3A5F" }}
     >
       {/* Content */}
-      <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 max-w-6xl mx-auto">
+      <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 max-w-7xl px-6  mx-auto">
         {/* Text Left */}
         <div className="flex-1 flex flex-col gap-4 md:gap-6 items-center md:items-start text-center md:text-left">
           <p
@@ -25,14 +26,17 @@ const CTA = () => {
           >
             Let NannyBay take care of the details, so you can focus on what
             matters most. Trusted professionals, flexible booking, and peace of
-            mind — all in one place.
+            mind, all in one place.
           </p>
 
           {/* Buttons */}
           <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-1 md:mt-2">
-            <button className="bg-blue-600 text-white px-6 md:px-7 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition active:scale-95">
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center bg-blue-600 text-white px-6 md:px-7 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition active:scale-95"
+            >
               Book a Service Today
-            </button>
+            </Link>
           </div>
         </div>
 

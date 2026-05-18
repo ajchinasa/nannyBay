@@ -1,6 +1,24 @@
-export const quickLinks = [
-  { label: "Home", to: "/#hero", hash: true },
-  { label: "About Us", to: "/#about", hash: true },
-  { label: "Services", to: "/services", hash: false },
-  { label: "How It Works", to: "/how-it-works", hash: false },
+export interface QuickLink {
+  label: string;
+  to: string;
+  hash?: boolean;
+}
+
+export const quickLinks: QuickLink[] = [
+  {
+    label: "Home",
+    to: "/#hero",
+    hash: true,
+  },
+  {
+    label: "About Us",
+    to: "/#about",
+    hash: true,
+  },
+  {
+    label: "Services",
+
+    to: "/services",
+    hash: false,
+  },
 ];

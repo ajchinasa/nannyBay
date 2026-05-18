@@ -4,7 +4,7 @@ import checks from "../../../data/home/whyChoose/checkes";
 
 const WhyChoose = () => {
   return (
-    <section className="px-5 md:px-16 py-14 md:py-20 bg-white">
+    <section className="py-14 md:py-20 bg-white">
       {/* Header */}
       <div className="text-center mb-8 md:mb-14">
         <p className="text-blue-600 text-sm uppercase tracking-widest mb-2">
@@ -15,7 +15,7 @@ const WhyChoose = () => {
         </h2>
         <div className="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
         <p className="text-gray-500 mt-4 max-w-xs sm:max-w-md md:max-w-xl mx-auto leading-relaxed text-sm sm:text-base">
-          We don't just send someone to your home — we send the right person,
+          We don't just send someone to your home, we send the right person,
           every time.
         </p>
       </div>

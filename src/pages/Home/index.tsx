@@ -10,16 +10,37 @@ import SEO from "../../components/SEO";
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex flex-col w-full">
       <SEO />
-      <Hero />
-      <About />
-      <MissionVision />
-      <Values />
-      <Services />
-      <WhoWeServe />
-      <WhyChoose />
-      <CTA />
+
+      <section id="hero" className="scroll-mt-6 w-full">
+        <Hero />
+      </section>
+
+      <section
+        id="about"
+        className="scroll-mt-6 w-full mx-auto max-w-screen-xl px-5 md:px-6"
+      >
+        <About />
+      </section>
+
+      <div className="w-full mx-auto max-w-screen-xl px-5 md:px-6">
+        <MissionVision />
+        <Values />
+      </div>
+
+      <section id="services" className="w-full">
+        <Services />
+      </section>
+
+      <div className="w-full mx-auto max-w-screen-xl px-5 md:px-6">
+        <WhoWeServe />
+        <WhyChoose />
+      </div>
+
+      <section id="cta" className="w-full">
+        <CTA />
+      </section>
     </div>
   );
 };

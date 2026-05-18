@@ -21,7 +21,7 @@ const audiences: Audience[] = [
     iconColor: "#1E40AF",
     bg: "#DBEAFE",
     title: "Parents",
-    desc: "Busy mums and dads who need trusted, reliable help at home — so you can focus on your family, not the chores.",
+    desc: "Busy mums and dads who need trusted, reliable help at home, so you can focus on your family, not the chores.",
   },
   {
     icon: Building2,
@@ -49,7 +49,7 @@ const audiences: Audience[] = [
     iconColor: "#DB2777",
     bg: "#FCE7F3",
     title: "Families",
-    desc: "Households of all sizes who need daily home management — from childcare and cooking to cleaning and elderly care.",
+    desc: "Households of all sizes who need daily home management; from childcare and cooking to cleaning and elderly care.",
   },
 ];
 

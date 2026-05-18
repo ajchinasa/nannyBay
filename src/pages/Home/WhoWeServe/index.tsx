@@ -2,7 +2,7 @@ import audiences from "../../../data/home/audiences";
 
 const WhoWeServe = () => {
   return (
-    <section className="px-5 md:px-16 py-14 md:py-20 bg-gray-50">
+    <section className=" py-14 md:py-20 bg-gray-50">
       {/* Header */}
       <div className="text-center mb-8 md:mb-14">
         <p className="text-blue-600 text-sm uppercase tracking-widest mb-2">
@@ -14,7 +14,7 @@ const WhoWeServe = () => {
         <div className="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
         <p className="text-gray-500 mt-4 max-w-xs sm:max-w-md md:max-w-xl mx-auto leading-relaxed text-sm sm:text-base">
           Whether you are a busy parent, a growing company, or a family looking
-          for trusted support — NannyBay has a solution for you.
+          for trusted support, NannyBay has a solution for you.
         </p>
       </div>
 

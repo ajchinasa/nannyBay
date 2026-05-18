@@ -4,8 +4,9 @@ const AboutUs = () => {
   return (
     <section
       id="about"
-      className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 px-5 md:px-16 py-14 md:py-20 bg-white"
+      className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 py-14 md:py-20"
     >
+      {/* bg-white */}
       {/* Text Side */}
       <div className="flex-1 flex flex-col gap-4 md:gap-5 items-center md:items-start text-center md:text-left">
         <p className="text-blue-600 text-sm uppercase tracking-widest">
@@ -27,7 +28,7 @@ const AboutUs = () => {
           professionals who show up with skill, discretion, and heart.
         </p>
         <p className="text-black leading-relaxed text-sm sm:text-base">
-          Our name says it all — we are your bay of support. A safe harbour for
+          Our name says it all, we are your bay of support. A safe harbour for
           busy families, working professionals, and anyone who deserves more
           time to focus on what matters most.
         </p>
@@ -51,7 +52,6 @@ const AboutUs = () => {
           ))}
         </div>
       </div>
-
       {/* Image Side */}
       <div className="flex-1 w-full">
         <img

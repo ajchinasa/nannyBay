@@ -147,9 +147,9 @@ const Hero = () => {
           );
         })}
 
-      {/* Text overlay */}
+      {/* CHANGED: Wrapped inner text layout inside standard max-width container bounds */}
       <div
-        className="absolute inset-0 flex flex-col justify-center items-center lg:items-start px-5 lg:px-16 text-center lg:text-left"
+        className="absolute inset-0 flex items-center w-full"
         style={{
           zIndex: 20,
           opacity: textVisible ? 1 : 0,
@@ -157,22 +157,21 @@ const Hero = () => {
           transition: "opacity 0.6s ease, transform 0.6s ease",
         }}
       >
-        <p className="text-white sm:text-sm md:text-l text-xs  uppercase tracking-widest mb-2 opacity-80 font-semibold">
-          Welcome to NannyBay
-        </p>
-        <h1 className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-xs sm:max-w-lg md:max-w-2xl mx-auto md:mx-0">
-          {slide.heading}
-        </h1>
-        <p className="text-white/80 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-sm md:max-w-md leading-relaxed mx-auto md:mx-0">
-          {slide.sub}
-        </p>
-        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center md:items-start">
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition-all active:scale-95">
-            {slide.cta}
-          </button>
-          {/* <button className="border border-white/30 text-white px-8 py-3 rounded-full font-medium backdrop-blur-sm hover:bg-white hover:text-gray-900 transition-all active:scale-95">
-            Learn More
-          </button> */}
+        <div className="w-full mx-auto max-w-screen-xl px-5 md:px-6 flex flex-col items-center lg:items-start text-center lg:text-left">
+          <p className="text-white sm:text-sm md:text-base text-xs uppercase tracking-widest mb-2 opacity-80 font-semibold">
+            Welcome to NannyBay
+          </p>
+          <h1 className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-xs sm:max-w-lg md:max-w-2xl mx-auto lg:mx-0">
+            {slide.heading}
+          </h1>
+          <p className="text-white/80 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-sm md:max-w-md leading-relaxed mx-auto lg:mx-0">
+            {slide.sub}
+          </p>
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center lg:items-start">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition active:scale-95 cursor-pointer">
+              {slide.cta}
+            </button>
+          </div>
         </div>
       </div>
 

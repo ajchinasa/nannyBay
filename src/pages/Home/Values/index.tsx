@@ -2,7 +2,7 @@ import values from "../../../data/home/values";
 
 const Values = () => {
   return (
-    <section className="px-5 md:px-16 py-14 md:py-20 bg-white">
+    <section className="w-full py-14 md:py-20 bg-white">
       {/* Header */}
       <div className="text-center mb-8 md:mb-14">
         <p className="text-blue-600 text-sm uppercase tracking-widest mb-2">

@@ -8,7 +8,7 @@ const Services = () => {
       <div className="absolute inset-0 bg-black/60" />
 
       {/* Content */}
-      <div className="relative z-10 px-5 md:px-16 max-w-7xl mx-auto">
+      <div className="relative z-10 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
           {/* Left — Text */}
           <div className="flex-1 text-center lg:text-left items-center lg:items-start flex flex-col">
@@ -19,13 +19,13 @@ const Services = () => {
               Our Services
             </h2>
             <p className="text-white/70 leading-relaxed mb-6 md:mb-8 max-w-sm md:max-w-md lg:max-w-sm text-sm sm:text-base mx-auto md:mx-0">
-              We provide a wide range of trusted home services — each delivered
+              We provide a wide range of trusted home services. Each delivered
               by vetted, trained professionals who care about your family as
               much as you do.
             </p>
             <Link
               to="/services"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition"
+              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition active:scale-95"
             >
               View All Services
             </Link>

@@ -13,37 +13,37 @@ const services: Service[] = [
     icon: Sparkles,
     iconColor: "#1E40AF",
     title: "Housekeeping",
-    path: "/services/housekeeping",
+    path: "/services#housekeeping",
   },
   {
     icon: Baby,
     iconColor: "#059669",
     title: "Nanny Services",
-    path: "/services/nanny",
+    path: "/services#nanny-services",
   },
   {
     icon: Heart,
     iconColor: "#DB2777",
     title: "Babysitting",
-    path: "/services/babysitting",
+    path: "/services#babysitting",
   },
   {
     icon: ChefHat,
     iconColor: "#D97706",
     title: "Chef Services",
-    path: "/services/chef",
+    path: "/services#chef-services",
   },
   {
     icon: Car,
     iconColor: "#7C3AED",
     title: "Driver Services",
-    path: "/services/driver",
+    path: "/services#driver-services",
   },
   {
     icon: HandHeart,
     iconColor: "#059669",
     title: "Elderly Care",
-    path: "/services/elderly-care",
+    path: "/services#elderly-care",
   },
 ];
 

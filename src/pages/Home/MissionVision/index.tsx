@@ -1,6 +1,6 @@
 const MissionVision = () => {
   return (
-    <section className="px-5 md:px-16 py-14 md:py-20 bg-gray-50">
+    <section className=" py-14 md:py-20 bg-gray-50 bg-black">
       {/* Section Header */}
       <div className="text-center mb-8 md:mb-12">
         <p className="text-blue-600 text-sm uppercase tracking-widest mb-2">
@@ -53,8 +53,8 @@ const MissionVision = () => {
               style={{ color: "#CBD5E1" }}
             >
               To simplify the lives of families by delivering exceptional home
-              services through trusted, trained, and compassionate professionals
-              — so you can focus on what matters most.
+              services through trusted, trained, and compassionate
+              professionals, so you can focus on what matters most.
             </p>
           </div>
         </div>
@@ -84,8 +84,8 @@ const MissionVision = () => {
               Where We're Going
             </h3>
             <p className="text-gray-500 leading-relaxed text-sm sm:text-base">
-              To become the most trusted home services brand in Africa — built
-              on the belief that every family deserves reliable, professional
+              To become the most trusted home services brand in Africa. Built on
+              the belief that every family deserves reliable, professional
               support in their home, one household at a time.
             </p>
           </div>

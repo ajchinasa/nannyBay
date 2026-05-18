@@ -1,11 +1,11 @@
 export const contactDetails = [
   {
     type: "phone",
-    text: "+234 000 000 0000",
+    text: "+234 707-126-5227",
   },
   {
     type: "email",
-    text: "hello@nannybay.com",
+    text: "nannyybay@gmail.com",
   },
   {
     type: "location",

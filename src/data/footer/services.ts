@@ -18,15 +18,15 @@ const services: ServiceLink[] = [
   },
   {
     label: "Chef Services",
-    to: "/services#chef-services",
+    to: "/services#chef",
   },
   {
     label: "Driver Services",
-    to: "/services#driver-services",
+    to: "/services#driver",
   },
   {
     label: "Elderly Care",
-    to: "/services#elderly-care",
+    to: "/services#elderly",
   },
 ];
 

@@ -31,19 +31,19 @@ const services: Service[] = [
     icon: ChefHat,
     iconColor: "#D97706",
     title: "Chef Services",
-    path: "/services#chef-services",
+    path: "/services#chef",
   },
   {
     icon: Car,
     iconColor: "#7C3AED",
     title: "Driver Services",
-    path: "/services#driver-services",
+    path: "/services#driver",
   },
   {
     icon: HandHeart,
     iconColor: "#059669",
     title: "Elderly Care",
-    path: "/services#elderly-care",
+    path: "/services#elderly",
   },
 ];
 

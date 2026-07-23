@@ -1,94 +1,104 @@
-import whyImg from "../../../assets/images/landingPage/whyChooseUs.png";
+import { motion } from "framer-motion";
+import { CheckCircle2, ShieldCheck } from "lucide-react";
+import whyImg from "../../../assets/images/landingPage/whyChooseUs.webp";
 import stats from "../../../data/home/whyChoose/stats";
 import checks from "../../../data/home/whyChoose/checkes";
 
 const WhyChoose = () => {
   return (
-    <section className="py-14 md:py-20 bg-white">
-      {/* Header */}
-      <div className="text-center mb-8 md:mb-14">
-        <p className="text-blue-600 text-sm uppercase tracking-widest mb-2">
-          Why NannyBay
-        </p>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
-          Why Choose Us
-        </h2>
-        <div className="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
-        <p className="text-gray-500 mt-4 max-w-xs sm:max-w-md md:max-w-xl mx-auto leading-relaxed text-sm sm:text-base">
-          We don't just send someone to your home, we send the right person,
-          every time.
-        </p>
-      </div>
-
-      {/* Content — Image left + Stats & Checklist right */}
-      <div className="flex flex-col md:flex-row gap-8 md:gap-10 max-w-6xl mx-auto items-stretch">
-        {/* Image — hidden on mobile, shown on md and up */}
-        <div className="hidden md:flex flex-1 min-h-[400px]">
-          <img
-            src={whyImg}
-            alt="NannyBay professional"
-            className="w-full h-full object-cover rounded-2xl shadow-lg"
-            style={{ objectPosition: "center center" }}
-          />
+    <section className="py-16 md:py-24 bg-slate-50 border-b border-slate-200/80 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#1E40AF] bg-blue-100/80 mb-3">
+            WHY NANNYBAY
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+            Why <span className="text-[#1E40AF]">Choose Us</span>
+          </h2>
+          <p className="text-slate-600 mt-4 text-sm sm:text-base leading-relaxed">
+            We don't just send someone to your home, we match you with vetted,
+            background-checked personnel tailored to your family's exact needs.
+          </p>
         </div>
 
-        {/* Right Side */}
-        <div className="flex-1 flex flex-col gap-4">
-          {/* Stats */}
-          <div className="grid grid-cols-2 gap-3">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="text-center py-4 px-3 rounded-xl"
-                style={{ backgroundColor: "#1E3A5F" }}
-              >
-                <p className="text-xl sm:text-2xl font-bold text-white mb-1">
-                  {stat.value}
-                </p>
-                <p className="text-xs" style={{ color: "#93C5FD" }}>
-                  {stat.label}
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-center">
+          {/* Left Side — Image with Floating Trust Badge */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 relative order-2 lg:order-1"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 h-[380px] sm:h-[480px] w-full">
+              <img
+                src={whyImg}
+                alt="NannyBay professional caregiver"
+                className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+            </div>
+
+            {/* Floating Trust Badge Overlay */}
+            <div className="absolute -bottom-6 -right-2 sm:right-6 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-200/90 flex items-center gap-4 max-w-[260px] sm:max-w-xs">
+              <div className="w-12 h-12 rounded-xl bg-[#1E40AF] text-white flex items-center justify-center shrink-0 shadow-md">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-slate-900">
+                  Guaranteed Trust
+                </h4>
+                <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
+                  100% replacement cover
                 </p>
               </div>
-            ))}
-          </div>
+            </div>
+          </motion.div>
 
-          {/* Checklist */}
-          <div className="flex flex-col gap-2 mt-2">
-            {checks.map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-3 md:gap-4 p-3 rounded-xl bg-gray-50 border border-gray-100"
-              >
-                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#1E40AF"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
+          {/* Right Side — Stats Grid & Interactive Checklist */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 flex flex-col gap-6 order-1 lg:order-2"
+          >
+            {/* Stats Cards (Dark Navy Theme) */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="p-5 rounded-2xl bg-[#06111f] border border-slate-800 text-center shadow-lg group hover:border-[#60A5FA]/40 transition-all duration-300"
+                >
+                  <p className="text-2xl sm:text-3xl font-extrabold text-white mb-1 group-hover:scale-105 transition-transform">
+                    {stat.value}
+                  </p>
+                  <p className="text-xs font-medium text-[#60A5FA]">
+                    {stat.label}
+                  </p>
                 </div>
-                <p className="text-gray-700 text-xs sm:text-sm font-medium">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          {/* Mobile only — show image below checklist */}
-          <div className="md:hidden mt-4 h-52 sm:h-64">
-            <img
-              src={whyImg}
-              alt="NannyBay professional"
-              className="w-full h-full object-cover rounded-2xl shadow-lg"
-              style={{ objectPosition: "center center" }}
-            />
-          </div>
+            {/* Verification Checklist */}
+            <div className="flex flex-col gap-3 mt-2">
+              {checks.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-300 hover:shadow-md transition-all duration-200"
+                >
+                  <div className="w-7 h-7 rounded-full bg-blue-50 text-[#1E40AF] flex items-center justify-center shrink-0 border border-blue-100">
+                    <CheckCircle2 className="w-4 h-4 text-[#1E40AF]" />
+                  </div>
+                  <p className="text-slate-800 text-xs sm:text-sm font-semibold leading-snug">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ export const chefServicePackage: ChefServicePackage[] = [
     iconName: "Soup",
     tier: "ESSENTIAL",
     desc: "LOCAL CHEF",
-    price: "NGN 180,000",
+    price: "₦ 180,000",
     period: "/Monthly",
     from: false,
     features: [
@@ -30,7 +30,7 @@ export const chefServicePackage: ChefServicePackage[] = [
     iconName: "UtensilsCrossed",
     tier: "ELITE",
     desc: "INTERCONTINENTAL & LOCAL CHEF",
-    price: "NGN 280,000",
+    price: "₦ 280,000",
     period: "/Monthly",
     from: false,
     features: [
@@ -46,12 +46,12 @@ export const chefServicePackage: ChefServicePackage[] = [
     iconName: "Home",
     tier: "LIVE-OUT",
     desc: "CHEF",
-    price: "NGN 210,000",
+    price: "₦ 210,000",
     period: "/Monthly",
     from: true,
     features: [
-      "Standard live-out - NGN 210,000/Monthly",
-      "Premium live-out - NGN 310,000/Monthly",
+      "Standard live-out - ₦ 210,000/Monthly",
+      "Premium live-out - ₦ 310,000/Monthly",
     ],
   },
 ];

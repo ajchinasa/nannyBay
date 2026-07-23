@@ -8,14 +8,15 @@ export interface DriverServicePackage {
   period: string;
   from: boolean;
   features: string[];
+  desc?: string;
 }
 
 export const driverServicePackages: DriverServicePackage[] = [
   {
     iconName: "UserCircle",
     tier: "STANDARD",
-    label: "DRIVER",
-    price: "NGN 160,000",
+    label: "",
+    price: "₦ 160,000",
     period: "/Monthly",
     from: false,
     features: [
@@ -29,8 +30,8 @@ export const driverServicePackages: DriverServicePackage[] = [
   {
     iconName: "UserRoundCheck",
     tier: "EXECUTIVE",
-    label: "DRIVER",
-    price: "NGN 220,000",
+    label: "",
+    price: "₦ 220,000",
     period: "/Monthly",
     from: false,
     features: [
@@ -42,13 +43,13 @@ export const driverServicePackages: DriverServicePackage[] = [
   {
     iconName: "Clock",
     tier: "DAILY",
-    label: "DRIVER",
-    price: "NGN 10,000",
+    label: "",
+    price: "₦ 10,000",
     period: "/Hour",
     from: false,
     features: [
-      "N10,000 per hour with a minimum booking of 3 hours",
-      "Additional time beyond agreed hours charged at N10,000/hr",
+      "₦10,000 per hour with a minimum booking of 3 hours",
+      "Additional time beyond agreed hours charged at ₦10,000/hr",
       "Overtime subject to driver's prior availability",
     ],
   },

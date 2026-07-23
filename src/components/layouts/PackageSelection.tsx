@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { SERVICES_DATA } from "../../data/services/serviceItem";
 
 // Card Imports
@@ -10,77 +9,15 @@ import ChefPackageCards from "../../pages/Services/chefServicePackages";
 import BabySittingCards from "../../pages/Services/babySittingPackages";
 import HouseKeepingPackagesCards from "../../pages/Services/houseKeepingPackages";
 
-// Maps the hash used in the navbar (services.ts) to the activeTab id
-const HASH_TO_TAB: Record<string, string> = {
-  housekeeping: "housekeeping",
-  "nanny-services": "nanny",
-  babysitting: "babysitting",
-  chef: "chef",
-  driver: "driver",
-  elderly: "elderly",
-};
-
-// Reverse lookup: tab id -> hash. Built once from HASH_TO_TAB so the two
-// maps can never drift out of sync with each other.
-const TAB_TO_HASH: Record<string, string> = Object.fromEntries(
-  Object.entries(HASH_TO_TAB).map(([hash, tab]) => [tab, hash]),
-);
-
 const PackageSection = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  // Initialize activeTab from the URL hash on first render, so landing
-  // directly on /services#housekeeping (e.g. from the navbar CTA) works
-  // immediately without waiting on an effect.
-  const [activeTab, setActiveTab] = useState(() => {
-    const hash = location.hash.replace("#", "");
-    return HASH_TO_TAB[hash] || "nanny";
-  });
-
-  // Tracks the previous Hash, so we only adjust activeTab
-  // when the hash actually changes (not on every render).
-  const [lastHash, setLastHash] = useState(location.hash);
-
-  if (location.hash !== lastHash) {
-    setLastHash(location.hash);
-    const matchedTab = HASH_TO_TAB[location.hash.replace("#", "")];
-    if (matchedTab) {
-      setActiveTab(matchedTab);
-    }
-  }
-
-  useEffect(() => {
-    const hash = location.hash.replace("#", "");
-    if (!HASH_TO_TAB[hash]) return;
-
-    const el = document.getElementById(hash);
-    if (el) {
-      requestAnimationFrame(() => {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    }
-  }, [location.hash]);
+  const [activeTab, setActiveTab] = useState("nanny");
 
   // Lookup active service object
   const currentService =
     SERVICES_DATA.find((s) => s.id === activeTab) || SERVICES_DATA[0];
 
-  // Keeps the URL hash in sync whenever a tab button is clicked directly,
-  // so links like "Book a Cleaning Service" (which point at a fixed hash)
-  // reliably work no matter which tab was previously active.
-  const handleTabClick = (tabId: string) => {
-    setActiveTab(tabId);
-    const hash = TAB_TO_HASH[tabId];
-    if (hash) {
-      navigate(`/services#${hash}`, { replace: true });
-      setLastHash(`#${hash}`);
-    }
-  };
-
   return (
     <section
-      id={TAB_TO_HASH[activeTab] || "housekeeping"}
       className="w-full py-20 relative bg-cover bg-center bg-no-repeat transition-all duration-500 ease-in-out"
       style={{ backgroundImage: `url('${currentService.bgImage}')` }}
     >
@@ -107,7 +44,7 @@ const PackageSection = () => {
               return (
                 <button
                   key={service.id}
-                  onClick={() => handleTabClick(service.id)}
+                  onClick={() => setActiveTab(service.id)}
                   type="button"
                   className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-200 whitespace-nowrap ${
                     isActive

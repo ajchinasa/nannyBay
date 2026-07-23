@@ -15,9 +15,9 @@ export const nannyPackages: NannyPackage[] = [
   {
     iconName: "Home",
     tier: "STANDARD",
-    label: "NANNY",
+    label: "",
     desc: "Essential care for your child's daily needs.",
-    price: "NGN 150,000",
+    price: "₦ 150,000",
     period: "/Monthly",
     from: false,
     features: [
@@ -32,9 +32,9 @@ export const nannyPackages: NannyPackage[] = [
   {
     iconName: "Baby",
     tier: "PREMIUM",
-    label: "NANNY",
+    label: "",
     desc: "Enhanced care with additional support around the home.",
-    price: "NGN 190,000",
+    price: "₦ 190,000",
     period: "/Monthly",
     from: false,
     features: [
@@ -49,9 +49,9 @@ export const nannyPackages: NannyPackage[] = [
   {
     iconName: "BookOpen",
     tier: "PREMIUM+",
-    label: "NANNY",
+    label: "",
     desc: "Comprehensive care with educational support.",
-    price: "NGN 220,000",
+    price: "₦ 220,000",
     period: "/Monthly",
     from: false,
     features: [
@@ -66,9 +66,9 @@ export const nannyPackages: NannyPackage[] = [
   {
     iconName: "Car",
     tier: "LIVE OUT",
-    label: "NANNY",
+    label: "",
     desc: "Full-time care without residential stay.",
-    price: "NGN 180,000",
+    price: "₦ 180,000",
     period: "/Month",
     from: true,
     features: [

@@ -53,6 +53,8 @@ const Footer = () => {
             <img
               src={Logo}
               alt="NannyBay"
+              width={192}
+              height={48}
               className="h-12 w-auto object-contain object-left"
             />
             <p

@@ -1,51 +1,62 @@
+import { motion } from "framer-motion";
 import values from "../../../data/home/values";
 
 const Values = () => {
   return (
-    <section className="w-full py-14 md:py-20 bg-white">
-      {/* Header */}
-      <div className="text-center mb-8 md:mb-14">
-        <p className="text-blue-600 text-sm uppercase tracking-widest mb-2">
-          What We Stand For
-        </p>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
-          Our Values
-        </h2>
-        <div className="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
-      </div>
+    <section className="w-full py-16 md:py-24 bg-white border-b border-slate-200/80">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#1E40AF] bg-blue-50 border border-blue-100 mb-3">
+            WHAT WE STAND FOR
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+            Our Core <span className="text-[#1E40AF]">Values</span>
+          </h2>
+          <p className="text-slate-600 mt-4 text-sm sm:text-base leading-relaxed">
+            Every caregiver we place and every home we serve is guided by our
+            unwavering commitment to safety, integrity, and exceptional care.
+          </p>
+        </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl mx-auto">
-        {values.map((value) => {
-          const Icon = value.icon;
-          return (
-            <div
-              key={value.title}
-              className="flex flex-col items-center text-center gap-3 md:gap-4 p-5 md:p-7 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-300 hover:shadow-md transition-all duration-300 group"
-            >
-              {/* Icon */}
-              <div
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                style={{ backgroundColor: value.bg }}
+        {/* Centered Flex Layout */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8 items-stretch">
+          {values.map((value, index) => {
+            const Icon = value.icon;
+
+            return (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col items-start p-7 md:p-8 rounded-3xl bg-slate-50/80 border border-slate-200/80 hover:bg-white hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
               >
-                <Icon size={20} color={value.iconColor} />
-              </div>
+                {/* Icon Container */}
+                <div
+                  className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm border border-slate-200/50"
+                  style={{ backgroundColor: value.bg || "#EFF6FF" }}
+                >
+                  <Icon size={24} color={value.iconColor || "#1E40AF"} />
+                </div>
 
-              {/* Title */}
-              <h3 className="text-sm md:text-base font-bold text-gray-800">
-                {value.title}
-              </h3>
+                {/* Title */}
+                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 group-hover:text-[#1E40AF] transition-colors">
+                  {value.title}
+                </h3>
 
-              {/* Divider */}
-              <div className="w-8 h-0.5 bg-blue-200 rounded-full" />
+                {/* Accent Line */}
+                <div className="w-8 h-1 bg-[#1E40AF]/20 rounded-full mb-4 group-hover:w-14 group-hover:bg-[#1E40AF] transition-all duration-300" />
 
-              {/* Body */}
-              <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
-                {value.body}
-              </p>
-            </div>
-          );
-        })}
+                {/* Body Text */}
+                <p className="text-slate-600 text-sm leading-relaxed mt-auto">
+                  {value.body}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

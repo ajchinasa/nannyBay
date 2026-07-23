@@ -1,5 +1,7 @@
 import { useLayoutEffect, useEffect, useRef, useState } from "react";
 import slides from "../../../data/home/hero";
+import { Link } from "react-router-dom";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 
 const SLICEY_BOXES = [
   { w: 250, h: 150, hoff: -112, voff: -219, delay: 300 },
@@ -19,14 +21,12 @@ const SLICEY_BOXES = [
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  // Initialize with null to prevent "guessing" dimensions on first render
   const [dims, setDims] = useState<{ w: number; h: number } | null>(null);
   const [current, setCurrent] = useState(0);
   const [animate, setAnimate] = useState(false);
   const [textVisible, setTextVisible] = useState(true);
 
-  // useLayoutEffect runs BEFORE the browser paints.
-  // Fix for correcting on subsequent loads.
+  // Measure container dimensions for slice positioning
   useLayoutEffect(() => {
     const update = () => {
       if (sectionRef.current) {
@@ -37,14 +37,12 @@ const Hero = () => {
       }
     };
 
-    // Initial measure
     update();
-
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  // Trigger slicey on load
+  // Trigger initial slice animation on load
   useEffect(() => {
     const t = setTimeout(() => setAnimate(true), 100);
     return () => clearTimeout(t);
@@ -76,29 +74,40 @@ const Hero = () => {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative w-full h-[400px] md:h-[500px] lg:h-[650px] overflow-hidden bg-black "
+      className="relative w-full h-[450px] sm:h-[520px] md:h-[600px] lg:h-[680px] overflow-hidden bg-[#06111f]"
     >
-      {/* Background image container */}
+      {/* 
+        PRE-RENDER ALL SLIDE IMAGES IN THE DOM
+        Using opacity transitions instead of swapping src eliminates the dark screen flash
+      */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
-        <img
-          key={current}
-          src={slide.image}
-          alt="NannyBay professional home services"
-          className="w-full h-full block object-cover"
-          style={{
-            // top of the image stays at the top of the container
-            objectPosition: "top center",
-            animation: "kenBurnOut 6s ease-out forwards",
-            transformOrigin: "top center", // make zoom start from the top
-          }}
-        />
+        {slides.map((s, index) => {
+          const isActive = index === current;
+          return (
+            <img
+              key={s.image || index}
+              src={s.image}
+              alt="NannyBay professional home services"
+              loading={index === 0 ? "eager" : "lazy"}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-100 z-0" : "opacity-0 -z-10"
+              }`}
+              style={{
+                objectPosition: "top center",
+                animation: isActive
+                  ? "kenBurnOut 6s ease-out forwards"
+                  : "none",
+                transformOrigin: "top center",
+              }}
+            />
+          );
+        })}
       </div>
 
-      {/* Dark overlay */}
+      {/* Dark overlay with animation */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 z-10 pointer-events-none bg-slate-950/50"
         style={{
-          backgroundColor: "rgba(0,0,0,0.45)",
           animation: animate
             ? "overlayIn 0.5s cubic-bezier(0.77,0,0.175,1) forwards"
             : "none",
@@ -106,7 +115,7 @@ const Hero = () => {
         }}
       />
 
-      {/* Slicey boxes - Only render if dims are available */}
+      {/* Slicey boxes - Floating blurred square slices */}
       {dims &&
         SLICEY_BOXES.map((box, i) => {
           const left = dims.w / 2 + box.hoff - box.w / 2;
@@ -121,8 +130,9 @@ const Hero = () => {
                 top,
                 width: box.w,
                 height: box.h,
-                zIndex: 5 + i,
+                zIndex: 12 + i,
                 opacity: 0,
+                willChange: "opacity",
                 animation: animate
                   ? `sliceyFade 3s ease-in-out ${box.delay}ms forwards`
                   : "none",
@@ -138,57 +148,72 @@ const Hero = () => {
                   backgroundImage: `url(${slide.image})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
-                  filter: "blur(25px)",
-                  opacity: 0.3,
-                  transform: "scale(1.05)",
+                  filter: "blur(20px)",
+                  opacity: 0.35,
+                  transform: "scale(1.05) translateZ(0)",
                 }}
               />
             </div>
           );
         })}
 
-      {/* CHANGED: Wrapped inner text layout inside standard max-width container bounds */}
+      {/* Hero Content Area */}
       <div
         className="absolute inset-0 flex items-center w-full"
         style={{
-          zIndex: 20,
+          zIndex: 30,
           opacity: textVisible ? 1 : 0,
           transform: textVisible ? "translateY(0)" : "translateY(12px)",
           transition: "opacity 0.6s ease, transform 0.6s ease",
         }}
       >
-        <div className="w-full mx-auto max-w-screen-xl px-5 md:px-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-          <p className="text-white sm:text-sm md:text-base text-xs uppercase tracking-widest mb-2 opacity-80 font-semibold">
-            Welcome to NannyBay
-          </p>
-          <h1 className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-xs sm:max-w-lg md:max-w-2xl mx-auto lg:mx-0">
-            {slide.heading}
-          </h1>
-          <p className="text-white/80 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-sm md:max-w-md leading-relaxed mx-auto lg:mx-0">
-            {slide.sub}
-          </p>
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center lg:items-start">
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition active:scale-95 cursor-pointer">
-              {slide.cta}
-            </button>
+        <div className="w-full mx-auto max-w-7xl px-6">
+          <div className="max-w-2xl flex flex-col items-center lg:items-start text-center lg:text-left">
+            {/* Top Badge */}
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#60A5FA] bg-blue-500/20 border border-blue-400/30 mb-4 backdrop-blur-md">
+              <ShieldCheck className="w-4 h-4 text-[#60A5FA]" />
+              WELCOME TO NANNYBAY
+            </span>
+
+            {/* Slide Headline */}
+            <h1 className="text-white text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+              {slide.heading}
+            </h1>
+
+            {/* Slide Subtitle */}
+            <p className="text-slate-200 mt-4 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl font-normal">
+              {slide.sub}
+            </p>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap gap-4 items-center justify-center lg:justify-start w-full sm:w-auto">
+              <Link
+                to={slide.path ?? "/services"}
+                className="inline-flex items-center justify-center gap-2 bg-[#1E40AF] hover:bg-blue-600 text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-blue-900/40 hover:shadow-blue-600/30 transition-all duration-200 text-sm sm:text-base active:scale-95"
+              >
+                {slide.cta || "Get Started"}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Dot indicators */}
+      {/* Slide Navigation Indicator Dots */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3"
-        style={{ zIndex: 30 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2.5 bg-slate-900/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/10"
+        style={{ zIndex: 40 }}
       >
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className="h-1.5 rounded-full transition-all duration-500"
+            aria-label={`Go to slide ${index + 1}`}
+            className="h-2 rounded-full transition-all duration-300 cursor-pointer"
             style={{
-              width: current === index ? "32px" : "8px",
+              width: current === index ? "28px" : "8px",
               backgroundColor:
-                current === index ? "white" : "rgba(255,255,255,0.3)",
+                current === index ? "#60A5FA" : "rgba(255,255,255,0.4)",
             }}
           />
         ))}
@@ -196,8 +221,8 @@ const Hero = () => {
 
       <style>{`
         @keyframes kenBurnOut {
-          0%   { transform: scale(1);    filter: blur(8px); }
-          100% { transform: scale(1.15); filter: blur(0px); }
+          0%   { transform: scale(1); }
+          100% { transform: scale(1.08); }
         }
         @keyframes overlayIn {
           0%   { opacity: 0; }
@@ -205,8 +230,8 @@ const Hero = () => {
         }
         @keyframes sliceyFade {
           0%   { opacity: 0; }
-          15%  { opacity: 0.7; }
-          85%  { opacity: 0.7; }
+          20%  { opacity: 0.75; }
+          80%  { opacity: 0.75; }
           100% { opacity: 0; }
         }
       `}</style>

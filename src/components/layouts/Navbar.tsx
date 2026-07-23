@@ -1,8 +1,8 @@
-import Logo from "../../assets/images/universal/footerLogo.png";
+import Logo from "../../assets/images/universal/navlogo.webp";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import services from "../../data/home/services"; // Assuming correct relative path to your service list configuration
+import services from "../../data/home/services";
 
 const navItems = [
   { label: "Home", to: "/#hero", pathname: "/" },
@@ -13,6 +13,7 @@ const navItems = [
     pathname: "/services",
     hasDropdown: true,
   },
+  // { label: "Bookings", to: "/booking", pathname: "/booking" },
 ];
 
 const Navbar = () => {
@@ -74,23 +75,24 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 px-5 md:px-6 py-4 flex items-center justify-between transition-all duration-500 ${
+        /* parent nav fixed height at h-16 md:h-20 */
+        className={`fixed top-0 left-0 w-full z-50 h-16 md:h-20 px-5 md:px-6 py-2 md:py-3 flex items-center justify-between transition-all duration-500 ${
           scrolled || menuOpen
             ? "bg-white/90 backdrop-blur-md shadow-sm"
             : "bg-transparent"
         }`}
       >
-        {/* Logo */}
+        {/* Logo Container */}
         <Link
           to="/#hero"
           state={{ instantaneous: !checkIsSamePage("/#hero") }}
           onClick={handleLinkClick}
-          className="cursor-pointer"
+          className="cursor-pointer flex items-center h-full"
         >
           <img
             src={Logo}
             alt="NannyBay"
-            className="h-8 md:h-10 w-auto object-contain"
+            className="h-10 md:h-20 w-auto max-h-full object-contain"
           />
         </Link>
 
@@ -126,31 +128,33 @@ const Navbar = () => {
 
                   {/* Desktop Floating Menu Wrapper */}
                   <div
-                    className={`absolute left-1/2 -translate-x-1/2 top-full mt-1 w-56 bg-white rounded-xl shadow-xl border border-gray-100 p-2 transition-all duration-200 ${
+                    className={`absolute left-1/2 -translate-x-1/2 top-full pt-1 w-56 transition-all duration-200 ${
                       desktopDropdownOpen
                         ? "opacity-100 translate-y-0 pointer-events-auto"
                         : "opacity-0 translate-y-2 pointer-events-none"
                     }`}
                   >
-                    {services.map((svc) => {
-                      const IconComponent = svc.icon;
-                      const isSvcSamePage = checkIsSamePage(svc.path);
-                      return (
-                        <Link
-                          key={svc.title}
-                          to={svc.path}
-                          state={{ instantaneous: !isSvcSamePage }}
-                          onClick={handleLinkClick}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150 font-medium"
-                        >
-                          <IconComponent
-                            size={16}
-                            style={{ color: svc.iconColor }}
-                          />
-                          {svc.title}
-                        </Link>
-                      );
-                    })}
+                    <div className="bg-white rounded-xl shadow-xl border border-gray-100 p-2">
+                      {services.map((svc) => {
+                        const IconComponent = svc.icon;
+                        const isSvcSamePage = checkIsSamePage(svc.path);
+                        return (
+                          <Link
+                            key={svc.title}
+                            to={svc.path}
+                            state={{ instantaneous: !isSvcSamePage }}
+                            onClick={handleLinkClick}
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150 font-medium"
+                          >
+                            <IconComponent
+                              size={16}
+                              style={{ color: svc.iconColor }}
+                            />
+                            {svc.title}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
                 </li>
               );
@@ -203,7 +207,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu Container */}
       <div
-        className={`fixed top-[64px] left-0 w-full z-40 transition-all duration-300 md:hidden overflow-y-auto max-h-[calc(100vh-64px)] ${
+        className={`fixed top-[64px] md:top-[80px] left-0 w-full z-40 transition-all duration-300 md:hidden overflow-y-auto max-h-[calc(100vh-64px)] ${
           menuOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"

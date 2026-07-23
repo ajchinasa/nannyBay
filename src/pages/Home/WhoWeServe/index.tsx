@@ -1,55 +1,91 @@
+import { motion } from "framer-motion";
 import audiences from "../../../data/home/audiences";
 
 const WhoWeServe = () => {
   return (
-    <section className=" py-14 md:py-20 bg-gray-50">
-      {/* Header */}
-      <div className="text-center mb-8 md:mb-14">
-        <p className="text-blue-600 text-sm uppercase tracking-widest mb-2">
-          Who We Serve
-        </p>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
-          Built for Every Nigerian Home
-        </h2>
-        <div className="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
-        <p className="text-gray-500 mt-4 max-w-xs sm:max-w-md md:max-w-xl mx-auto leading-relaxed text-sm sm:text-base">
-          Whether you are a busy parent, a growing company, or a family looking
-          for trusted support, NannyBay has a solution for you.
-        </p>
-      </div>
+    <section className="py-16 md:py-24 bg-slate-50 border-b border-slate-200/80">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#1E40AF] bg-blue-100/80 mb-3">
+            WHO WE SERVE
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+            Built for Every{" "}
+            <span className="text-[#1E40AF]">Nigerian Home</span>
+          </h2>
+          <p className="text-slate-600 mt-4 text-sm sm:text-base leading-relaxed">
+            Whether you are a busy parent, an executive, or a business seeking
+            corporate childcare, NannyBay delivers vetted household solutions
+            tailored to your lifestyle.
+          </p>
+        </div>
 
-      {/* Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl mx-auto">
-        {audiences.map((item) => {
-          const Icon = item.icon;
-          return (
-            <div
-              key={item.title}
-              className="flex flex-col items-center text-center gap-3 md:gap-4 p-5 md:p-7 rounded-2xl bg-white border border-gray-100 hover:border-blue-300 hover:shadow-md transition-all duration-300 group"
-            >
-              {/* Icon circle */}
-              <div
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                style={{ backgroundColor: item.bg }}
+        {/* Dynamic Responsive Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+          {audiences.map((item, index) => {
+            const Icon = item.icon;
+
+            // Highlight the first card slightly (Working Parents) as the primary spotlight
+            const isFeatured = index === 0;
+
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className={`flex flex-col p-6 md:p-8 rounded-3xl transition-all duration-300 relative group h-full shadow-sm hover:shadow-xl ${
+                  isFeatured
+                    ? "bg-[#06111f] text-white border border-slate-800"
+                    : "bg-white text-slate-900 border border-slate-200/90 hover:border-blue-300"
+                }`}
               >
-                <Icon size={20} color={item.iconColor} />
-              </div>
+                {/* Header Row: Icon + Optional Badge */}
+                <div className="flex items-center justify-between mb-6">
+                  <div
+                    className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-md ${
+                      isFeatured
+                        ? "bg-[#1E40AF] text-white"
+                        : "bg-blue-50 border border-blue-100"
+                    }`}
+                  >
+                    <Icon
+                      size={24}
+                      color={
+                        isFeatured ? "#FFFFFF" : item.iconColor || "#1E40AF"
+                      }
+                    />
+                  </div>
 
-              {/* Title */}
-              <h3 className="text-sm md:text-base font-bold text-gray-800">
-                {item.title}
-              </h3>
+                  {isFeatured && (
+                    <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-500/20 text-[#60A5FA] border border-blue-400/30 px-3 py-1 rounded-full">
+                      Most Popular
+                    </span>
+                  )}
+                </div>
 
-              {/* Divider */}
-              <div className="w-8 h-0.5 bg-blue-200 rounded-full" />
+                {/* Content */}
+                <h3
+                  className={`text-lg md:text-xl font-extrabold mb-3 ${
+                    isFeatured ? "text-white" : "text-slate-900"
+                  }`}
+                >
+                  {item.title}
+                </h3>
 
-              {/* Description */}
-              <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
-          );
-        })}
+                <p
+                  className={`text-sm leading-relaxed mt-auto ${
+                    isFeatured ? "text-slate-300" : "text-slate-600"
+                  }`}
+                >
+                  {item.desc}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

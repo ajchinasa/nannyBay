@@ -1,14 +1,14 @@
-import AboutImage from "../../../assets/images/landingPage/about.png";
+import AboutImage from "../../../assets/images/landingPage/about.webp";
 
 const AboutUs = () => {
   return (
     <section
       id="about"
-      className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 py-14 md:py-20"
+      className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 py-14 md:py-20 w-full max-w-7xl mx-auto px-4 md:px-6"
     >
       {/* bg-white */}
       {/* Text Side */}
-      <div className="flex-1 flex flex-col gap-4 md:gap-5 items-center md:items-start text-center md:text-left">
+      <div className="flex-1 min-w-0 flex flex-col gap-4 md:gap-5 items-center md:items-start text-center md:text-left">
         <p className="text-blue-600 text-sm uppercase tracking-widest">
           Who We Are
         </p>
@@ -53,7 +53,7 @@ const AboutUs = () => {
         </div>
       </div>
       {/* Image Side */}
-      <div className="flex-1 w-full">
+      <div className="flex-1 min-w-0 w-full">
         <img
           src={AboutImage}
           alt="NannyBay professional"

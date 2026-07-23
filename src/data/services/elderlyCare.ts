@@ -15,9 +15,9 @@ export const elderlyCarePackages: ElderlyCarePackage[] = [
   {
     iconName: "Sparkles",
     tier: "STANDARD",
-    label: "CARE",
+    label: "",
     desc: "(NON-MEDICAL)",
-    price: "NGN 150,000",
+    price: "₦ 150,000",
     period: "/Monthly",
     from: true,
     features: [
@@ -32,9 +32,9 @@ export const elderlyCarePackages: ElderlyCarePackage[] = [
   {
     iconName: "ShieldPlus",
     tier: "PREMIUM",
-    label: "CARE",
+    label: "",
     desc: "(NON-MEDICAL)",
-    price: "NGN 200,000",
+    price: "₦ 200,000",
     period: "/Monthly",
     from: true,
     features: [
@@ -49,9 +49,9 @@ export const elderlyCarePackages: ElderlyCarePackage[] = [
   {
     iconName: "HouseHeart",
     tier: "PREMIUM+",
-    label: "CARE",
+    label: "",
     desc: "(NON-MEDICAL)",
-    price: "NGN 280,000",
+    price: "₦ 280,000",
     period: "/Monthly",
     from: true,
     features: [

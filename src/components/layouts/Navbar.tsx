@@ -75,7 +75,6 @@ const Navbar = () => {
   return (
     <>
       <nav
-        /* parent nav fixed height at h-16 md:h-20 */
         className={`fixed top-0 left-0 w-full z-50 h-16 md:h-20 px-5 md:px-6 py-2 md:py-3 flex items-center justify-between transition-all duration-500 ${
           scrolled || menuOpen
             ? "bg-white/90 backdrop-blur-md shadow-sm"
@@ -87,7 +86,7 @@ const Navbar = () => {
           to="/#hero"
           state={{ instantaneous: !checkIsSamePage("/#hero") }}
           onClick={handleLinkClick}
-          className="cursor-pointer flex items-center h-full"
+          className="cursor-pointer flex items-center h-full outline-none"
         >
           <img
             src={Logo}

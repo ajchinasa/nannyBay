@@ -210,13 +210,17 @@ const Hero = () => {
             key={index}
             onClick={() => setCurrent(index)}
             aria-label={`Go to slide ${index + 1}`}
-            className="h-2 rounded-full transition-all duration-300 cursor-pointer"
-            style={{
-              width: current === index ? "28px" : "8px",
-              backgroundColor:
-                current === index ? "#60A5FA" : "rgba(255,255,255,0.4)",
-            }}
-          />
+            className="flex items-center justify-center w-6 h-6 cursor-pointer rounded-full"
+          >
+            <span
+              className="h-2 rounded-full transition-all duration-300 block"
+              style={{
+                width: current === index ? "28px" : "8px",
+                backgroundColor:
+                  current === index ? "#60A5FA" : "rgba(255,255,255,0.4)",
+              }}
+            />
+          </button>
         ))}
       </div>
 

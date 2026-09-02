@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import services from "../../../data/home/services";
+import FadeIn from "../../../components/ui/FadeIn";
 
 const Services = () => {
   return (
@@ -13,11 +13,9 @@ const Services = () => {
       <div className="relative z-10 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-10 md:gap-14 items-center">
           {/* Left Column — Text Intro */}
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          <FadeIn
+            direction="up"
+            amount={0.3}
             className="flex-1 text-center lg:text-left items-center lg:items-start flex flex-col"
           >
             <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#60A5FA] bg-[#1E40AF]/30 border border-[#60A5FA]/20 mb-3">
@@ -38,35 +36,14 @@ const Services = () => {
             >
               View All Services & Packages
             </Link>
-          </motion.div>
+          </FadeIn>
 
-          {/* Right Column — Staggered Glassmorphism Grid */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={{
-              hidden: {},
-              visible: {
-                transition: {
-                  staggerChildren: 0.08,
-                  delayChildren: 0.2,
-                },
-              },
-            }}
-            className="flex-1 w-full grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4"
-          >
-            {services.map((service) => {
+          {/* Right Column — Staggered Grid */}
+          <div className="flex-1 w-full grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <motion.div
-                  key={service.title}
-                  variants={{
-                    hidden: { opacity: 0, y: 20, scale: 0.95 },
-                    visible: { opacity: 1, y: 0, scale: 1 },
-                  }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                >
+                <FadeIn key={service.title} delay={index * 80} amount={0.2}>
                   <Link
                     to={service.path}
                     className="flex flex-col items-center justify-center gap-3 py-6 px-4 text-center rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-[#60A5FA]/40 hover:bg-slate-800/80 backdrop-blur-sm transition-all duration-300 group h-full shadow-lg"
@@ -78,10 +55,10 @@ const Services = () => {
                       {service.title}
                     </h3>
                   </Link>
-                </motion.div>
+                </FadeIn>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

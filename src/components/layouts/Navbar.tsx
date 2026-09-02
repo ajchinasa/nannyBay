@@ -92,6 +92,8 @@ const Navbar = () => {
           <img
             src={Logo}
             alt="NannyBay"
+            width={1536}
+            height={1024}
             className="h-10 md:h-20 w-auto max-h-full object-contain"
           />
         </Link>
@@ -245,6 +247,11 @@ const Navbar = () => {
                     <button
                       onClick={() => setMobileDropdownOpen((prev) => !prev)}
                       className="p-2 -mr-2 text-gray-600 cursor-pointer"
+                      aria-label={
+                        mobileDropdownOpen
+                          ? "Collapse services menu"
+                          : "Expand services menu"
+                      }
                     >
                       <ChevronDown
                         size={18}

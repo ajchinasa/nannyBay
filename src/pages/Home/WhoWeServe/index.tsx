@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import audiences from "../../../data/home/audiences";
+import FadeIn from "../../../components/ui/FadeIn";
 
 const WhoWeServe = () => {
   return (
@@ -25,17 +25,13 @@ const WhoWeServe = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
           {audiences.map((item, index) => {
             const Icon = item.icon;
-
-            // Highlight the first card slightly (Working Parents) as the primary spotlight
             const isFeatured = index === 0;
 
             return (
-              <motion.div
+              <FadeIn
                 key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                delay={index * 80}
+                amount={0.2}
                 className={`flex flex-col p-6 md:p-8 rounded-3xl transition-all duration-300 relative group h-full shadow-sm hover:shadow-xl ${
                   isFeatured
                     ? "bg-[#06111f] text-white border border-slate-800"
@@ -82,7 +78,7 @@ const WhoWeServe = () => {
                 >
                   {item.desc}
                 </p>
-              </motion.div>
+              </FadeIn>
             );
           })}
         </div>

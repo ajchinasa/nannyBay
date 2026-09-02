@@ -57,6 +57,8 @@ const AboutUs = () => {
         <img
           src={AboutImage}
           alt="NannyBay professional"
+          width={1536}
+          height={1024}
           className="w-full h-auto object-cover rounded-2xl shadow-lg"
         />
       </div>

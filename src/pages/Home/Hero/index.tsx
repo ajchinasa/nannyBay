@@ -89,6 +89,7 @@ const Hero = () => {
               src={s.image}
               alt="NannyBay professional home services"
               loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : undefined}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
                 isActive ? "opacity-100 z-0" : "opacity-0 -z-10"
               }`}

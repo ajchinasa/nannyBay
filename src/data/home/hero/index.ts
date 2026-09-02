@@ -1,4 +1,6 @@
-import imageOne from "../../../assets/images/landingPage/heroSlideImageOne.webp";
+// imageOne is served from public/ (no Vite hashing) so its path is stable.
+// This matches the <link rel="preload"> in index.html and the Image() check
+// in App.tsx — all three must point to the same URL for preloading to work.
 import imageTwo from "../../../assets/images/landingPage/heroSlideImageTwo.webp";
 import imageThree from "../../../assets/images/landingPage/test.webp";
 
@@ -11,7 +13,7 @@ const slides: {
   position: string;
 }[] = [
   {
-    image: imageOne,
+    image: "/heroSlideImageOne.webp",
     heading: "Professional Cleaning Service",
     sub: "Simplifying Life, One Home At A Time",
     cta: "Book a Clean",

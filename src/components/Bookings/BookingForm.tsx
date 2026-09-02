@@ -111,7 +111,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
     setIsSubmitting(true);
 
     try {
-      // TODO: Replace this with your API call (e.g., Zoho Forms / Zoho CRM submission)
+      // TODO: Replace this with API call (e.g., Zoho Forms / Zoho CRM submission)
       console.log("Booking submitted:", formData);
 
       // Simulate a network request

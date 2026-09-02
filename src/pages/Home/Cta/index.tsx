@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, ShieldCheck } from "lucide-react";
 import ctaImg from "../../../assets/images/landingPage/heroSlideImageTwo.webp";
+import FadeIn from "../../../components/ui/FadeIn";
 
 const CTA = () => {
   return (
@@ -13,11 +13,9 @@ const CTA = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16">
           {/* Left Column: Text & CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+          <FadeIn
+            direction="up"
+            amount={0.3}
             className="flex-1 flex flex-col items-center md:items-start text-center md:text-left"
           >
             <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#60A5FA] bg-blue-500/10 border border-blue-400/20 mb-4">
@@ -46,20 +44,21 @@ const CTA = () => {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-          </motion.div>
+          </FadeIn>
 
           {/* Right Column: Image with Rating Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          <FadeIn
+            direction="up"
+            delay={100}
+            amount={0.3}
             className="flex-1 relative w-full"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-800 h-[300px] sm:h-[380px] w-full group">
               <img
                 src={ctaImg}
                 alt="NannyBay professional caring for a child"
+                width={1672}
+                height={941}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
@@ -82,7 +81,7 @@ const CTA = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </FadeIn>
         </div>
       </div>
     </section>

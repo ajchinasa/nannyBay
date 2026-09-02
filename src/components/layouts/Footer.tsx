@@ -53,8 +53,8 @@ const Footer = () => {
             <img
               src={Logo}
               alt="NannyBay"
-              width={192}
-              height={48}
+              width={746}
+              height={430}
               className="h-12 w-auto object-contain object-left"
             />
             <p
@@ -84,12 +84,12 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="col-span-1 flex flex-col gap-4">
-            <h4
+            <h3
               className="text-sm font-semibold uppercase tracking-widest"
               style={{ color: "#93C5FD" }}
             >
               Quick Links
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
@@ -117,12 +117,12 @@ const Footer = () => {
 
           {/* Services */}
           <div className="col-span-1 flex flex-col gap-4">
-            <h4
+            <h3
               className="text-sm font-semibold uppercase tracking-widest"
               style={{ color: "#93C5FD" }}
             >
               Our Services
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-3">
               {services.map((service) => (
                 <li key={service.label}>
@@ -140,12 +140,12 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
-            <h4
+            <h3
               className="text-sm font-semibold uppercase tracking-widest"
               style={{ color: "#93C5FD" }}
             >
               Contact Us
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-4">
               {contactDetails.map((item, i) => {
                 const isEmail = item.type === "email";
@@ -202,12 +202,12 @@ const Footer = () => {
         style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.65)" }}>
             © {new Date().getFullYear()} NannyBay. All Rights Reserved.
           </p>
           <p
             className="text-xs italic"
-            style={{ color: "rgba(255,255,255,0.4)" }}
+            style={{ color: "rgba(255,255,255,0.65)" }}
           >
             Simplifying Life, One Home At A Time.
           </p>

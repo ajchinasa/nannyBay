@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import values from "../../../data/home/values";
+import FadeIn from "../../../components/ui/FadeIn";
 
 const Values = () => {
   return (
@@ -25,12 +25,10 @@ const Values = () => {
             const Icon = value.icon;
 
             return (
-              <motion.div
+              <FadeIn
                 key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                delay={index * 80}
+                amount={0.2}
                 className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col items-start p-7 md:p-8 rounded-3xl bg-slate-50/80 border border-slate-200/80 hover:bg-white hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
               >
                 {/* Icon Container */}
@@ -53,7 +51,7 @@ const Values = () => {
                 <p className="text-slate-600 text-sm leading-relaxed mt-auto">
                   {value.body}
                 </p>
-              </motion.div>
+              </FadeIn>
             );
           })}
         </div>

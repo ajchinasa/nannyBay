@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
 import { CheckCircle2, ShieldCheck } from "lucide-react";
 import whyImg from "../../../assets/images/landingPage/whyChooseUs.webp";
 import stats from "../../../data/home/whyChoose/stats";
 import checks from "../../../data/home/whyChoose/checkes";
+import FadeIn from "../../../components/ui/FadeIn";
 
 const WhyChoose = () => {
   return (
@@ -25,17 +25,17 @@ const WhyChoose = () => {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-center">
           {/* Left Side — Image with Floating Trust Badge */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
+          <FadeIn
+            direction="left"
+            amount={0.3}
             className="lg:col-span-6 relative order-2 lg:order-1"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 h-[380px] sm:h-[480px] w-full">
               <img
                 src={whyImg}
                 alt="NannyBay professional caregiver"
+                width={1536}
+                height={1024}
                 className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
@@ -47,22 +47,20 @@ const WhyChoose = () => {
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-900">
+                <h3 className="text-xs sm:text-sm font-bold text-slate-900">
                   Guaranteed Trust
-                </h4>
+                </h3>
                 <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
                   100% replacement cover
                 </p>
               </div>
             </div>
-          </motion.div>
+          </FadeIn>
 
           {/* Right Side — Stats Grid & Interactive Checklist */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
+          <FadeIn
+            direction="right"
+            amount={0.3}
             className="lg:col-span-6 flex flex-col gap-6 order-1 lg:order-2"
           >
             {/* Stats Cards (Dark Navy Theme) */}
@@ -98,7 +96,7 @@ const WhyChoose = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </FadeIn>
         </div>
       </div>
     </section>

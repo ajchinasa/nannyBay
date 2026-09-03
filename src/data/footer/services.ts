@@ -28,6 +28,10 @@ const services: ServiceLink[] = [
     label: "Elderly Care",
     to: "/services#elderly",
   },
+  {
+    label: "Custom Service",
+    to: "/services#custom",
+  },
 ];
 
 export default services;

@@ -1,4 +1,12 @@
-import { Sparkles, Baby, Heart, ChefHat, Car, HandHeart } from "lucide-react";
+import {
+  Sparkles,
+  Baby,
+  Heart,
+  ChefHat,
+  Car,
+  HandHeart,
+  SprayCan,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface Service {
@@ -44,6 +52,12 @@ const services: Service[] = [
     iconColor: "#059669",
     title: "Elderly Care",
     path: "/services#elderly",
+  },
+  {
+    icon: SprayCan,
+    iconColor: "#059669",
+    title: "Cleaning Service",
+    path: "/services#cleaning",
   },
 ];
 

@@ -37,7 +37,7 @@ export const babySittingPackage: BabySittingPackage[] = [
     checkIconName: "Check",
     tier: "EXTENSIONS ",
     label: "& OVERTIME",
-    desc: "Additional time beyond the agreed hours, each extra hour will be charged at",
+    desc: "Additional time beyond the agreed hours, each extra hour will be charged at ₦ 5,000/Per hour",
     price: "₦ 5,000",
     period: "/Per hour",
     from: false,

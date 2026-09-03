@@ -181,15 +181,15 @@ const Navbar = () => {
 
         {/* Desktop CTA Button */}
         <Link
-          to="/services#housekeeping"
-          state={{ instantaneous: !checkIsSamePage("/services#housekeeping") }}
+          to="/services#custom"
+          state={{ instantaneous: !checkIsSamePage("/services#custom") }}
           className={`hidden md:block px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer text-center ${
             scrolled || menuOpen
               ? "bg-blue-600 text-white hover:bg-blue-700"
               : "border border-white text-white hover:bg-white hover:text-gray-800"
           }`}
         >
-          Book a Cleaning Service
+          Custom Service
         </Link>
 
         {/* Mobile — Hamburger */}
@@ -316,19 +316,18 @@ const Navbar = () => {
           {/* Mobile CTA Link */}
           <li className="pt-2 border-t border-gray-100">
             <Link
-              to="/services#housekeeping"
+              to="/services#custom"
               state={{
-                instantaneous: !checkIsSamePage("/services#housekeeping"),
+                instantaneous: !checkIsSamePage("/services#custom"),
               }}
               className={`font-semibold text-base transition-colors duration-300 cursor-pointer block ${
-                location.pathname === "/services" &&
-                location.hash === "#housekeeping"
+                location.pathname === "/services" && location.hash === "#custom"
                   ? "text-blue-600"
                   : "text-blue-600 hover:text-blue-700"
               }`}
               onClick={handleLinkClick}
             >
-              Book a Cleaning Service
+              Custom Service
             </Link>
           </li>
         </ul>

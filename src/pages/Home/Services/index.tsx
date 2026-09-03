@@ -39,17 +39,17 @@ const Services = () => {
           </FadeIn>
 
           {/* Right Column — Staggered Grid */}
-          <div className="flex-1 w-full grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          <div className="flex-1 w-full  grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
                 <FadeIn key={service.title} delay={index * 80} amount={0.2}>
                   <Link
                     to={service.path}
-                    className="flex flex-col items-center justify-center gap-3 py-6 px-4 text-center rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-[#60A5FA]/40 hover:bg-slate-800/80 backdrop-blur-sm transition-all duration-300 group h-full shadow-lg"
+                    className="flex flex-col items-center justify-center gap-3 py-5 px-4 text-center rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-[#60A5FA]/40 hover:bg-slate-800/80 backdrop-blur-sm transition-all duration-300 group h-full shadow-lg"
                   >
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-slate-800/90 border border-slate-700 group-hover:border-[#60A5FA]/50 group-hover:scale-110 transition-all duration-300 shadow-md">
-                      <Icon size={22} color={service.iconColor || "#60A5FA"} />
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center bg-slate-800/90 border border-slate-700 group-hover:border-[#60A5FA]/50 group-hover:scale-110 transition-all duration-300 shadow-md">
+                      <Icon size={18} color={service.iconColor || "#60A5FA"} />
                     </div>
                     <h3 className="text-white text-xs sm:text-sm font-semibold tracking-wide group-hover:text-[#60A5FA] transition-colors">
                       {service.title}

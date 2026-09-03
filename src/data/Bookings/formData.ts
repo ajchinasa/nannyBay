@@ -34,32 +34,32 @@ export const NANNY_SERVICES: NannyService[] = [
       {
         id: "basic-housekeeping",
         label: "Standard - ₦140,000/Monthly",
-        description: "Monday to Friday, 8am – 6pm",
+        description: "",
       },
       {
         id: "premium-housekeeping",
         label: "Premium - ₦180,000/Monthly",
-        description: "Monday to Saturday, 8am – 6pm",
+        description: "",
       },
       {
         id: "premiumplus-housekeeping",
         label: "Premium+ - ₦220,000/Monthly",
-        description: "Nanny lives with the family, 6 days/week",
+        description: "",
       },
       {
         id: "standard-live-out-housekeeping",
         label: "Standard live-out - ₦170,000",
-        description: "Nanny lives with the family, 6 days/week",
+        description: "",
       },
       {
         id: "premium-live-out-housekeeping",
         label: "Premium live-out - ₦210,000",
-        description: "Nanny lives with the family, 6 days/week",
+        description: "",
       },
       {
         id: "premium-plus-live-out-housekeeping",
         label: "live-out(Premium+) - ₦250,000",
-        description: "Nanny lives with the family, 6 days/week",
+        description: "",
       },
     ],
   },
@@ -71,22 +71,22 @@ export const NANNY_SERVICES: NannyService[] = [
       {
         id: "standard-nanny",
         label: "Standard - ₦150,000/Monthly",
-        description: "Monday to Friday, 7am – 1pm",
+        description: "",
       },
       {
         id: "premium-nanny",
         label: "Premium - ₦190,000/Monthly",
-        description: "Monday to Friday, 1pm – 7pm",
+        description: "",
       },
       {
         id: "premium-plus-nanny",
         label: "Premium+ - ₦220,000/Monthly",
-        description: "Saturday and Sunday, flexible hours",
+        description: "",
       },
       {
         id: "live-out-nanny",
         label: "Live out - ₦180,000/Month",
-        description: "Saturday and Sunday, flexible hours",
+        description: "",
       },
     ],
   },
@@ -98,14 +98,12 @@ export const NANNY_SERVICES: NannyService[] = [
       {
         id: "standard-babysitting-hours",
         label: "Standard Hours - ₦5,000/Per hour",
-        description:
-          "With a minimum booking of 3 hours. Additional time beyond the agreed hours, will attract an extra charge of N5000/per hour",
+        description: "",
       },
       {
         id: "overnight-babysitting-hours",
         label: "Overnight - ₦50,000/Flat rate",
-        description:
-          " (E.G., 8 PM TO 8 AM). Additional time beyond the agreed hours, will attract an extra charge of N5000/per hour",
+        description: "",
       },
     ],
   },
@@ -117,18 +115,18 @@ export const NANNY_SERVICES: NannyService[] = [
     packages: [
       {
         id: "elderly-care-standard-care",
-        label: "Standard - ₦150,000/Monthly",
-        description: "(Non-medical)",
+        label: "Standard (Non-medical) - ₦150,000/Monthly",
+        description: "",
       },
       {
         id: "elderly-care-premium-care",
-        label: "Premium - ₦200,000/Monthly",
-        description: "(Non-medical)",
+        label: "Premium (Non-medical) - ₦200,000/Monthly",
+        description: "",
       },
       {
         id: "elderly-care-premium-plus-care",
-        label: "Premium - ₦280,000/Monthly",
-        description: "(Non-medical)",
+        label: "Premium (Non-medical) - ₦280,000/Monthly",
+        description: "",
       },
     ],
   },
@@ -141,22 +139,22 @@ export const NANNY_SERVICES: NannyService[] = [
       {
         id: "essential-local-chef",
         label: "Essential Local Chef - ₦180,000/Monthly",
-        description: "Homework help and structured activities",
+        description: "",
       },
       {
         id: "elite-ntercontinental-chef",
         label: "Elite Intercontinental & Local Chef - ₦280,000/Monthly",
-        description: "Structured curriculum support, 5 days/week",
+        description: "",
       },
       {
         id: "standard-live-out-chef",
         label: "live-out(Standard) - ₦210,000/Monthly",
-        description: "Structured curriculum support, 5 days/week",
+        description: "",
       },
       {
         id: "premium-live-out-chef",
         label: "live-out(Premium) - ₦310,000/Monthly",
-        description: "Structured curriculum support, 5 days/week",
+        description: "",
       },
     ],
   },
@@ -169,17 +167,17 @@ export const NANNY_SERVICES: NannyService[] = [
       {
         id: "standard-driver-services",
         label: "Standard - ₦160,000/Monthly",
-        description: "Homework help and structured activities",
+        description: "",
       },
       {
         id: "executive-driver-services",
         label: "Executive - ₦220,000/Monthly",
-        description: "Structured curriculum support, 5 days/week",
+        description: "",
       },
       {
         id: "daily-driver-services",
         label: "Daily - ₦10,000/Hour",
-        description: "Structured curriculum support, 5 days/week",
+        description: "",
       },
     ],
   },

@@ -9,8 +9,10 @@ import DriverPackageCards from "../../pages/Services/driverServicePackages";
 import ChefPackageCards from "../../pages/Services/chefServicePackages";
 import BabySittingCards from "../../pages/Services/babySittingPackages";
 import HouseKeepingPackagesCards from "../../pages/Services/houseKeepingPackages";
+import CleaningServiceForm from "../../pages/Services/cleaningServiceForm";
+import CustomForm from "./customForm";
 
-// Maps the hash used in the navbar (services.ts) to the activeTab id
+// Maps the hash used in the navbar to the activeTab id
 const HASH_TO_TAB: Record<string, string> = {
   housekeeping: "housekeeping",
   "nanny-services": "nanny",
@@ -18,10 +20,11 @@ const HASH_TO_TAB: Record<string, string> = {
   chef: "chef",
   driver: "driver",
   elderly: "elderly",
+  cleaning: "cleaning",
+  custom: "custom",
 };
 
-// Reverse lookup: tab id -> hash. Built once from HASH_TO_TAB so the two
-// maps can never drift out of sync with each other.
+// Reverse lookup: tab id -> hash
 const TAB_TO_HASH: Record<string, string> = Object.fromEntries(
   Object.entries(HASH_TO_TAB).map(([hash, tab]) => [tab, hash]),
 );
@@ -30,16 +33,11 @@ const PackageSection = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Initialize activeTab from the URL hash on first render, so landing
-  // directly on /services#housekeeping (e.g. from the navbar CTA) works
-  // immediately without waiting on an effect.
   const [activeTab, setActiveTab] = useState(() => {
     const hash = location.hash.replace("#", "");
     return HASH_TO_TAB[hash] || "nanny";
   });
 
-  // Tracks the previous Hash, so we only adjust activeTab
-  // when the hash actually changes (not on every render).
   const [lastHash, setLastHash] = useState(location.hash);
 
   if (location.hash !== lastHash) {
@@ -62,13 +60,9 @@ const PackageSection = () => {
     }
   }, [location.hash]);
 
-  // Lookup active service object
   const currentService =
     SERVICES_DATA.find((s) => s.id === activeTab) || SERVICES_DATA[0];
 
-  // Keeps the URL hash in sync whenever a tab button is clicked directly,
-  // so links like "Book a Cleaning Service" (which point at a fixed hash)
-  // reliably work no matter which tab was previously active.
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
     const hash = TAB_TO_HASH[tabId];
@@ -84,7 +78,7 @@ const PackageSection = () => {
       className="w-full py-20 relative bg-cover bg-center bg-no-repeat transition-all duration-500 ease-in-out"
       style={{ backgroundImage: `url('${currentService.bgImage}')` }}
     >
-      {/* Heavy Dark Overlay for Text & Card Contrast */}
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-[#06111f]/85 backdrop-blur-sm transition-opacity duration-300" />
 
       {/* Content Container */}
@@ -99,8 +93,8 @@ const PackageSection = () => {
           </p>
         </div>
 
-        {/* Floating Glassmorphism Tab Bar */}
-        <div className="sticky top-6 z-30 bg-slate-900/80 backdrop-blur-md p-2 rounded-full border border-slate-700/60 shadow-2xl max-w-3xl mx-auto mb-10">
+        {/* Tab Bar */}
+        <div className="sticky top-6 z-30 bg-slate-900/80 backdrop-blur-md p-2 rounded-full border border-slate-700/60 shadow-2xl max-w-4xl mx-auto mb-10">
           <div className="flex items-center justify-between gap-1 overflow-x-auto scrollbar-none px-2 py-1">
             {SERVICES_DATA.map((service) => {
               const isActive = activeTab === service.id;
@@ -122,7 +116,7 @@ const PackageSection = () => {
           </div>
         </div>
 
-        {/* Dynamic Card Container */}
+        {/* Tab Content */}
         <div className="transition-all duration-300">
           {activeTab === "nanny" && <NannyPackages />}
           {activeTab === "chef" && <ChefPackageCards />}
@@ -130,6 +124,8 @@ const PackageSection = () => {
           {activeTab === "housekeeping" && <HouseKeepingPackagesCards />}
           {activeTab === "driver" && <DriverPackageCards />}
           {activeTab === "elderly" && <ElderlyCarePackages />}
+          {activeTab === "cleaning" && <CleaningServiceForm />}
+          {activeTab === "custom" && <CustomForm />}
         </div>
       </div>
     </section>

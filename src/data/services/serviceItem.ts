@@ -42,4 +42,14 @@ export const SERVICES_DATA: ServiceItem[] = [
     name: "Housekeeping",
     bgImage: housekeepingBg,
   },
+  {
+    id: "cleaning",
+    name: "Cleaning Service",
+    bgImage: housekeepingBg,
+  },
+  {
+    id: "custom",
+    name: "Custom Service",
+    bgImage: elderlyBg,
+  },
 ];

@@ -78,7 +78,7 @@ const Hero = () => {
     >
       {/* 
         PRE-RENDER ALL SLIDE IMAGES IN THE DOM
-        Using opacity transitions instead of swapping src eliminates the dark screen flash
+        Using opacity transitions instead of swapping src 
       */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         {slides.map((s, index) => {
